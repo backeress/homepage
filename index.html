@@ -2,78 +2,112 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>홈페이지 정보</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회사 소개 페이지</title>
     <style>
-        .contact-section {
-            font-family: 'Pretendard', sans-serif;
-            padding: 40px;
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            max-width: 600px;
-            margin: 20px auto;
-            border: 1px solid #eee;
-        }
-
-        .company-name {
-            font-size: 24px;
-            font-weight: bold;
+        /* 1. 전체 페이지 폰트 및 배경 설정 */
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fcfcfc; /* 아주 연한 회색 배경 */
             color: #333;
-            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* 화면 꽉 차게 설정 */
         }
 
+        /* 2. 카드 형태의 컨테이너 디자인 */
+        .container {
+            background-color: #ffffff;
+            padding: 50px 40px;
+            border-radius: 20px; /* 모서리 둥글게 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* 은은한 그림자 */
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        /* 3. 로고 또는 회사명 스타일 */
+        .brand-name {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        /* 4. 회사 소개글 스타일 */
         .description {
             font-size: 16px;
+            line-height: 1.8;
             color: #666;
-            line-height: 1.6;
-            margin-bottom: 25px;
+            margin-bottom: 40px;
+            word-break: keep-all; /* 한글 단어 끊김 방지 */
         }
 
-        .contact-info {
-            list-style: none;
-            padding: 0;
+        /* 5. 구분선 */
+        .divider {
+            height: 1px;
+            background-color: #eee;
+            margin-bottom: 40px;
         }
 
-        .contact-info li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
+        /* 6. 연락처 영역 스타일 */
+        .contact-item {
+            margin-bottom: 15px;
+            font-size: 15px;
         }
 
-        .contact-info strong {
-            width: 80px;
-            color: #444;
+        .contact-label {
+            display: block;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 5px;
         }
 
-        .contact-info a {
-            color: #007bff;
+        .contact-link {
+            color: #007AFF; /* 맥 스타일 블루 컬러 */
             text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
         }
 
-        .contact-info a:hover {
+        .contact-link:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <section class="contact-section">
-        <div class="company-name">브랜드/홈페이지 이름</div>
+    <div class="container">
+        <div class="brand-name">주식회사 멋진미래</div>
+
         <p class="description">
-            여기에 홈페이지에 대한 간단한 소개글을 입력하세요. 
-            고객에게 제공하는 가치나 브랜드의 비전을 짧게 설명하면 좋습니다.
+            우리는 기술과 디자인을 통해 일상의 문제를 해결합니다.<br>
+            고객의 성장이 곧 우리의 성장이라는 믿음으로<br>
+            최고의 솔루션을 제공하기 위해 노력하고 있습니다.
         </p>
 
-        <ul class="contact-info">
-            <li>
-                <strong>전화번호</strong>
-                <a href="tel:02-123-4567">02-123-4567</a>
-            </li>
-            <li>
-                <strong>이메일</strong>
-                <a href="mailto:contact@example.com">contact@example.com</a>
-            </li>
-        </ul>
-    </section>
+        <div class="divider"></div>
+
+        <div class="contact-item">
+            <span class="contact-label">대표</span>
+            <a href="tel:02-123-4567" class="contact-link">김또깡</a>
+        </div>
+        <div class="contact-item">
+            <span class="contact-label">Phone</span>
+            <a href="tel:02-123-4567" class="contact-link">02-123-4567</a>
+        </div>
+
+        <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a href="mailto:hello@awesome.com" class="contact-link">hello@awesome.com</a>
+        </div>
+    </div>
 
 </body>
 </html>
