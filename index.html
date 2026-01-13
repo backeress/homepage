@@ -4,8 +4,231 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>안전한 미래 엘리베이터 검사</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
-    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <style>
+        /* 1. 전체 페이지 기본 설정 */
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fbfd; /* 깨끗하고 밝은 배경색 */
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* 2. 섹션별 간격 및 너비 설정 */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-light {
+            background-color: #ffffff;
+        }
+
+        .section-dark {
+            background-color: #f0f4f7; /* 약간 어두운 배경으로 구분 */
+        }
+
+        /* 3. 제목 스타일 */
+        h1 {
+            font-size: 44px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2c3e50; /* 진한 파랑 계열 */
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        h2::after { /* 제목 밑줄 디자인 */
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #3498db; /* 신뢰감을 주는 블루 */
+            border-radius: 2px;
+        }
+
+        /* 4. 소제목/부제목 스타일 */
+        p.subtitle {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 5. 이미지 컨테이너 (시각적 요소) */
+        .image-container {
+            width: 100%;
+            height: 400px; /* 이미지 높이 조절 */
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            overflow: hidden; /* 이미지 오버플로우 방지 */
+        }
+        /* 첫 번째 이미지 - 회사 소개 배경 */
+        .hero-image {
+            background-image: url('img.png'); /* 엘리베이터 내부 또는 현대적인 건물 이미지 */
+            height: 500px; /* 높이가 있어야 이미지가 보입니다 */
+            width: 100%;
+            background-size: cover; /* 이미지가 꽉 차게 조절 */
+            background-position: center;
+        }
+
+        /* 6. 회사 소개 텍스트 */
+        .company-intro-text {
+            font-size: 17px;
+            color: #444;
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            line-height: 1.8;
+        }
+
+        /* 7. 회사가 하는 일 (그리드 레이아웃) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-item {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 4px solid #3498db; /* 강조색 */
+        }
+
+        .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .service-item i {
+            font-size: 48px;
+            color: #3498db; /* 아이콘 색상 */
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .service-item p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* 8. 연락처 정보 */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .contact-item-lg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 20px;
+            color: #444;
+        }
+
+        .contact-item-lg i {
+            font-size: 28px;
+            color: #3498db;
+        }
+
+        .contact-item-lg a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item-lg a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        /* 9. 푸터 (선택 사항 - 저작권 정보 등) */
+        .footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 80px;
+        }
+        .footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* 미디어 쿼리 - 반응형 디자인 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 34px;
+            }
+            h2 {
+                font-size: 26px;
+            }
+            p.subtitle {
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+            .section {
+                padding: 60px 15px;
+            }
+            .image-container {
+                height: 250px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr; /* 모바일에서 한 줄에 하나씩 */
+            }
+            .contact-item-lg {
+                font-size: 18px;
+            }
+            .contact-item-lg i {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -13,8 +236,8 @@
     <header class="section section-light">
         <div class="image-container hero-image">
             </div>
-        <h1>123정밀한 검사, 안전한 미래를 만듭니다.</h1>
-        <img src="img.png" alt="엘리베이터 로고" width="300">
+        <h1>정밀한 검사, 안전한 미래를 만듭니다.</h1>
+        <img src="./elevator_logo.jpg" alt="엘리베이터 로고" width="300">
         <p class="subtitle">
             저희 [회사명]은 수십 년간 축적된 전문성과 최첨단 기술로 엘리베이터의 안전을 책임집니다.<br>
             고객과 사용자의 신뢰를 최우선 가치로 여기며, 최고의 검사 서비스를 제공합니다.
@@ -25,7 +248,7 @@
         <h2>회사 소개</h2>
         <p class="company-intro-text">
             
-        <img src="elevator_logo.jpg" alt="엘리베이터 로고" width="300">
+        <img src="./img.png" alt="엘리베이터 로고" width="300">
             [회사명]은 20XX년에 설립된 이래, 대한민국 엘리베이터 안전 검사 분야의 선두 주자로 자리매김했습니다. 
             숙련된 전문가 팀과 최신 검사 장비를 바탕으로, 승강기의 설치부터 유지보수, 정밀 안전 검사에 이르는 
             전 과정에서 빈틈없는 서비스를 제공하고 있습니다. 우리는 단순한 검사를 넘어, 
@@ -36,6 +259,7 @@
     <section class="section section-light">
         <h2>우리의 서비스</h2>
         <p class="subtitle">
+            <img src="img.png" alt="엘리베이터 로고" width="300">
             [회사명]은 다음과 같은 전문 서비스를 통해 엘리베이터의 안전과 성능을 보장합니다.
         </p>
         <div class="services-grid">
@@ -93,7 +317,6 @@
     </section>
 
     <footer class="footer">
-        <img src="img.png" alt="내 사진 설명">
         &copy; 2023 [회사명] All rights reserved. | 
         <a href="#">개인정보처리방침</a> | 
         <a href="#">이용약관</a>
