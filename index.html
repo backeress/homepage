@@ -3,321 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>안전한 미래 엘리베이터 검사</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <style>
-        /* 1. 전체 페이지 기본 설정 */
-        body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8fbfd; /* 깨끗하고 밝은 배경색 */
-            color: #333;
-            line-height: 1.7;
-        }
-
-        /* 2. 섹션별 간격 및 너비 설정 */
-        .section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .section-light {
-            background-color: #ffffff;
-        }
-
-        .section-dark {
-            background-color: #f0f4f7; /* 약간 어두운 배경으로 구분 */
-        }
-
-        /* 3. 제목 스타일 */
-        h1 {
-            font-size: 44px;
-            font-weight: 800;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        h2 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #2c3e50; /* 진한 파랑 계열 */
-            margin-bottom: 25px;
-            position: relative;
-            display: inline-block;
-        }
-        h2::after { /* 제목 밑줄 디자인 */
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -10px;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: #3498db; /* 신뢰감을 주는 블루 */
-            border-radius: 2px;
-        }
-
-        /* 4. 소제목/부제목 스타일 */
-        p.subtitle {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 60px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* 5. 이미지 컨테이너 (시각적 요소) */
-        .image-container {
-            width: 100%;
-            height: 400px; /* 이미지 높이 조절 */
-            background-size: cover;
-            background-position: center;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 36px;
-            font-weight: bold;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-            overflow: hidden; /* 이미지 오버플로우 방지 */
-        }
-        /* 첫 번째 이미지 - 회사 소개 배경 */
-        .hero-image {
-            background-image: url('elevator.png'); /* 엘리베이터 내부 또는 현대적인 건물 이미지 */
-            height: 500px; /* 높이가 있어야 이미지가 보입니다 */
-            width: 100%;
-            background-size: cover; /* 이미지가 꽉 차게 조절 */
-            background-position: center;
-        }
-
-        /* 6. 회사 소개 텍스트 */
-        .company-intro-text {
-            font-size: 17px;
-            color: #444;
-            max-width: 900px;
-            margin: 0 auto 60px auto;
-            line-height: 1.8;
-        }
-
-        /* 7. 회사가 하는 일 (그리드 레이아웃) */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .service-item {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-bottom: 4px solid #3498db; /* 강조색 */
-        }
-
-        .service-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-        }
-
-        .service-item i {
-            font-size: 48px;
-            color: #3498db; /* 아이콘 색상 */
-            margin-bottom: 20px;
-        }
-
-        .service-item h3 {
-            font-size: 22px;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .service-item p {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* 8. 연락처 정보 */
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            margin-top: 50px;
-        }
-
-        .contact-item-lg {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            font-size: 20px;
-            color: #444;
-        }
-
-        .contact-item-lg i {
-            font-size: 28px;
-            color: #3498db;
-        }
-
-        .contact-item-lg a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item-lg a:hover {
-            color: #3498db;
-            text-decoration: underline;
-        }
-
-        /* 9. 푸터 (선택 사항 - 저작권 정보 등) */
-        .footer {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 40px 20px;
-            text-align: center;
-            font-size: 14px;
-            margin-top: 80px;
-        }
-        .footer a {
-            color: #ecf0f1;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-
-        /* 미디어 쿼리 - 반응형 디자인 */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 34px;
-            }
-            h2 {
-                font-size: 26px;
-            }
-            p.subtitle {
-                font-size: 16px;
-                margin-bottom: 40px;
-            }
-            .section {
-                padding: 60px 15px;
-            }
-            .image-container {
-                height: 250px;
-            }
-            .services-grid {
-                grid-template-columns: 1fr; /* 모바일에서 한 줄에 하나씩 */
-            }
-            .contact-item-lg {
-                font-size: 18px;
-            }
-            .contact-item-lg i {
-                font-size: 24px;
-            }
-        }
-    </style>
+    <title>Company Name | Premium Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- style="visibility: hidden;" -->
-    <header class="section section-light">
-        <div class="image-container hero-image">
-            </div>
-        <h1>정밀한 검사, 안전한 미래를 만듭니다.</h1>
-        <img src="./elevator_logo.jpg" alt="엘리베이터 로고" width="300">
-        <p class="subtitle">
-            저희 [회사명]은 수십 년간 축적된 전문성과 최첨단 기술로 엘리베이터의 안전을 책임집니다.<br>
-            고객과 사용자의 신뢰를 최우선 가치로 여기며, 최고의 검사 서비스를 제공합니다.
-        </p>
+    <header class="hero">
+        <div class="container">
+            <h1 class="main_title">Innovation & Trust</h1>
+            <p class="intro_text">우리는 기술을 넘어 고객의 가치를 실현하는 최고의 비즈니스 파트너입니다.</p>
+        </div>
     </header>
 
-    <section class="section section-dark">
-        <h2>회사 소개</h2>
-        <p class="company-intro-text">
-                    
-            [회사명]은 20XX년에 설립된 이래, 대한민국 엘리베이터 안전 검사 분야의 선두 주자로 자리매김했습니다. 
-            숙련된 전문가 팀과 최신 검사 장비를 바탕으로, 승강기의 설치부터 유지보수, 정밀 안전 검사에 이르는 
-            전 과정에서 빈틈없는 서비스를 제공하고 있습니다. 우리는 단순한 검사를 넘어, 
-            모든 이가 안심하고 엘리베이터를 이용할 수 있도록 지속적인 연구와 혁신을 추구합니다.
-        </p>
-    </section>
-
-    <section class="section section-light">
-        <h2>우리의 서비스</h2>
-        <p class="subtitle">            
-            [회사명]은 다음과 같은 전문 서비스를 통해 엘리베이터의 안전과 성능을 보장합니다.
-        </p>
-        <div class="services-grid">
-            <div class="service-item">
-                <i class="fas fa-check-circle"></i> <h3>정기 안전 검사</h3>
-                <p>
-                    법정 의무 정기 검사를 철저하게 수행하여 승강기의 안전 기준 준수 여부를 확인합니다.
-                    정밀한 진단을 통해 잠재적 위험 요소를 사전에 차단합니다.
-                </p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-search-plus"></i> <h3>정밀 안전 검사</h3>
-                <p>
-                    노후 엘리베이터 및 고장 발생 이력이 있는 승강기에 대해 심층적인 정밀 검사를 실시하여
-                    종합적인 안전성 평가와 개선 방안을 제시합니다.
-                </p>
-            </div>
-            <div style="display: none; class="service-item">
-                <i class="fas fa-tools"></i> <h3>유지보수 및 기술 상담</h3>
-                <p>
-                    엘리베이터 부품 교체 주기, 효율적인 유지보수 계획 수립 등
-                    승강기 관리에 필요한 전문적인 기술 상담을 제공합니다.
-                </p>
-            </div>
-             <div class="service-item">
-                <i class="fas fa-building"></i> <h3>신규 설치 검사</h3>
-                <p>
-                    새로 설치되는 엘리베이터의 안전 및 성능 기준 충족 여부를 검사하여
-                    초기 단계부터 완벽한 안전성을 확보합니다.
-                </p>
+    <section class="about">
+        <div class="container">
+            <h2 class="section_title">About Us</h2>
+            <div class="about_content">
+                <p>Company Name은 신뢰와 혁신을 바탕으로 최상의 솔루션을 제공합니다. 우리는 변화하는 시장 환경 속에서 고객사가 지속 가능한 경쟁력을 확보할 수 있도록 돕습니다.</p>
+                <p>우리의 철학은 정직한 기술력과 진정성 있는 소통에 있습니다.</p>
             </div>
         </div>
     </section>
 
-    <section class="section section-dark">
-        <h2>문의하기</h2>
-        <p class="subtitle">
-            엘리베이터 안전에 대한 궁금증이 있으시면 언제든지 [회사명]으로 문의해 주세요.<br>
-            전문가들이 친절하게 상담해 드립니다.
-        </p>
-        <div class="contact-info">
-             <div class="contact-item-lg">
-                <i class="fas fa-user"></i>
-                <a>김소장</a>
+    <section class="capabilities">
+        <div class="container">
+            <h2 class="section_title">Core Capabilities</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card_num">01</div>
+                    <h3>Business Strategy</h3>
+                    <p>데이터 기반의 정교한 분석을 통해 기업의 미래 성장 동력을 발굴하고 최적의 전략을 수립합니다.</p>
+                </div>
+                <div class="card">
+                    <div class="card_num">02</div>
+                    <h3>Digital Design</h3>
+                    <p>사용자의 감성을 자극하는 모던한 디자인과 최적화된 UX를 통해 브랜드의 품격을 높입니다.</p>
+                </div>
+                <div class="card">
+                    <div class="card_num">03</div>
+                    <h3>Advanced Tech</h3>
+                    <p>고성능 인프라와 최신 보안 기술을 적용하여 안정적이고 강력한 시스템 환경을 구축합니다.</p>
+                </div>
             </div>
-            <div class="contact-item-lg">
-                <i class="fas fa-phone"></i>
-                <a href="tel:02-123-4567">02-123-4567</a>
-            </div>
-            <div class="contact-item-lg">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:contact@safefuture.com">contact@safefuture.com</a>
-            </div>
-            </div>
+        </div>
     </section>
 
-    <footer class="footer">
-        &copy; 2023 [회사명] All rights reserved. | 
-        <a href="#">개인정보처리방침</a> | 
-        <a href="#">이용약관</a>
+    <section class="history">
+        <div class="container">
+            <h2 class="section_title">Our History</h2>
+            <div class="timeline">
+                <div class="history_item">
+                    <span class="year">2024</span>
+                    <p>글로벌 혁신 기업 선정 및 유럽 지사 확장</p>
+                </div>
+                <div class="history_item">
+                    <span class="year">2022</span>
+                    <p>기술 연구소(R&D) 설립 및 특허 15건 등록</p>
+                </div>
+                <div class="history_item">
+                    <span class="year">2020</span>
+                    <p>Company Name 설립 및 서비스 정식 런칭</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="contact">
+        <div class="container">
+            <h2 class="section_title white">Contact Us</h2>
+            <div class="info_grid">
+                <div class="info_item">
+                    <strong>CEO</strong>
+                    <span>홍길동</span>
+                </div>
+                <div class="info_item">
+                    <strong>Phone</strong>
+                    <span>02-1234-5678</span>
+                </div>
+                <div class="info_item">
+                    <strong>Email</strong>
+                    <span>contact@company.com</span>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2026 Company Name. All Rights Reserved.</p>
+        </div>
     </footer>
 
 </body>
